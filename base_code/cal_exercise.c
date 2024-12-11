@@ -26,6 +26,7 @@ int exercise_list_size = 0;
     description : read the information in "excercises.txt"
 */
 
+//warning 뜨는건 나중에 해결하기 
 void loadExercises(const char* EXERCISEFILEPATH) {
     FILE *file = fopen(EXERCISEFILEPATH, "r");
     if (file == NULL) {
@@ -34,15 +35,23 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     }
 
     // ToCode: to read a list of the exercises from the given file
-    while ( ) {
-    	
+    while (fgets(exercise_list[exercise_list_size].exercise_name, MAX_EXERCISES, file) != NULL) {	
         if (exercise_list_size >= MAX_EXERCISES){
         	break;
 		}
+		//seperate exercise name and calories
+		char *context = NULL;    //context for strtok_s
+		char *name = strtok_s(exercise_list[exercise_list_size].exercise_name, " ", &context);
+		char *calories = strtok_s(NULL, " ", &context);
+		exercise_list[exercise_list_size].calories_burned_per_minute = atoi(calories);    //convert calories info string to integer
+		//checking
+		printf("%s %i\n", exercise_list[exercise_list_size].exercise_name, exercise_list[exercise_list_size].calories_burned_per_minute);
+		//
+		exercise_list_size++;
     }
-
     fclose(file);
 }
+//
 
 
 /*
