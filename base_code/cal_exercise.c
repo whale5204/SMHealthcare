@@ -45,7 +45,7 @@ void loadExercises(const char* EXERCISEFILEPATH) {
 		char *calories_b = strtok_s(NULL, " ", &context);
 		exercise_list[exercise_list_size].calories_burned_per_minute = atoi(calories_b);    //convert calories_burned info string to integer
 		//checking
-		printf("%s %i\n", exercise_list[exercise_list_size].exercise_name, exercise_list[exercise_list_size].calories_burned_per_minute);
+		printf("%s %d\n", exercise_list[exercise_list_size].exercise_name, exercise_list[exercise_list_size].calories_burned_per_minute);
 		//
 		exercise_list_size++;
     }
@@ -79,6 +79,7 @@ void inputExercise(HealthData* health_data) {
     // ToCode: to enter the exercise to be chosen with exit option
     printf("Enter the choice of exercise: ");
     scanf("%d", &choice);
+    
     // exit option
     if (choice == exercise_list_size + 1)
         return;
@@ -92,14 +93,18 @@ void inputExercise(HealthData* health_data) {
     // ToCode: to enter the selected exercise and total calcories burned in the health data
     int index = health_data->exercise_count;    // index of selected exercise
     
+    // enter the selected exercise and calories burned in the health data
     health_data->exercises[index] = exercise_list[choice - 1];
     health_data->exercises[index].calories_burned_per_minute *= duration;
-    health_data->exercise_count++;
     
+    // enter total calories burned in the health data
     health_data->total_calories_burned += health_data->exercises[index].calories_burned_per_minute;
     
     //checking
     printf("%s - %d kcal\n", health_data->exercises[index].exercise_name, health_data->exercises[index].calories_burned_per_minute);
+    printf("Total calories burned: %d kcal", health_data->total_calories_burned);
     //
+    
+    health_data->exercise_count++;
 
 }
