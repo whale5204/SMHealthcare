@@ -69,9 +69,9 @@ void inputDiet(HealthData* health_data) {
     printf("The list of diets:\n");
     for (i=0; i<diet_list_size; i++)
     {
-    	printf("%d. %s\n", (i + 1), diet_list[i].food_name);
+    	printf("%d. %s \n", (i + 1), diet_list[i].food_name);
 	}
-	printf("%d. exit\n", (diet_list_size + 1));
+	printf("%d. exit \n", (diet_list_size + 1));
     
 	// ToCode: to enter the diet to be chosen with exit option
     printf("Enter the choice of diet: ");
@@ -90,8 +90,8 @@ void inputDiet(HealthData* health_data) {
     health_data->total_calories_intake += health_data->diet[index].calories_intake;
     
     //checking
-    printf("%s - %d kcal\n", health_data->diet[index].food_name, health_data->diet[index].calories_intake);
-    printf("Total calories intake: %d kcal", health_data->total_calories_intake);
+    printf("%s - %d kcal \n", health_data->diet[index].food_name, health_data->diet[index].calories_intake);
+    printf("Total calories intake: %d kcal \n", health_data->total_calories_intake);
     //
     
     health_data->diet_count++;
