@@ -26,6 +26,7 @@ static int diet_list_size = 0;
     description : read the information in "diets.txt"
 */
 
+//warning 뜨는 건 나중에 해결하기 
 void loadDiets(const char* DIETFILEPATH) {
     FILE *file = fopen(DIETFILEPATH, "r");
     if (file == NULL) {
@@ -34,11 +35,20 @@ void loadDiets(const char* DIETFILEPATH) {
     }
 
      // ToCode: to read a list of the diets from the given file
-    while () {
+    while (fgets(diet_list[diet_list_size].food_name, MAX_DIETS, file) != NULL) {
     	
         if (diet_list_size >= MAX_DIETS){
         	break;
 		}
+		//seperate diets name and calories
+		char *context = NULL;    //context for strtok_s
+		char *name = strtok_s(diet_list[diet_list_size].food_name, " ", &context);
+		char *calories_i = strtok_s(NULL, " ", &context);
+		diet_list[diet_list_size].calories_intake = atoi(calories_i);    //convert calories_intake info string to integer
+		//checking
+		printf("%s %i\n", diet_list[diet_list_size].food_name, diet_list[diet_list_size].calories_intake);
+		//
+		diet_list_size++;
     }
     fclose(file);
 }

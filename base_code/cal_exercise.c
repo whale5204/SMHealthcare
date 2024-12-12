@@ -39,11 +39,11 @@ void loadExercises(const char* EXERCISEFILEPATH) {
         if (exercise_list_size >= MAX_EXERCISES){
         	break;
 		}
-		//seperate exercise name and calories
+		//seperate exercises name and calories
 		char *context = NULL;    //context for strtok_s
 		char *name = strtok_s(exercise_list[exercise_list_size].exercise_name, " ", &context);
-		char *calories = strtok_s(NULL, " ", &context);
-		exercise_list[exercise_list_size].calories_burned_per_minute = atoi(calories);    //convert calories info string to integer
+		char *calories_b = strtok_s(NULL, " ", &context);
+		exercise_list[exercise_list_size].calories_burned_per_minute = atoi(calories_b);    //convert calories_burned info string to integer
 		//checking
 		printf("%s %i\n", exercise_list[exercise_list_size].exercise_name, exercise_list[exercise_list_size].calories_burned_per_minute);
 		//
