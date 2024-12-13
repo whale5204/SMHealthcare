@@ -35,12 +35,13 @@
     // index of exercise and diet
     int exercise_index = health_data->exercise_count;
     int diet_index = health_data->diet_count;
+    printf("exercise_index: %d \ndiet_index: %d \n", exercise_index, diet_index);
 
     // ToCode: to save the chosen exercise and total calories burned 
     fprintf(file, "[Exercises] \n");
     for (i=0; i<exercise_index; i++)
     {
-    	fprintf(file, "%s - %d kcal \n", health_data->exercises[exercise_index].exercise_name, health_data->exercises[exercise_index].calories_burned_per_minute);
+    	fprintf(file, "%s - %d kcal \n", health_data->exercises[i].exercise_name, health_data->exercises[i].calories_burned_per_minute);
 	}
     fprintf(file, "Total calories burned: kcal \n", health_data->total_calories_burned);
     
@@ -49,7 +50,7 @@
     fprintf(file, "\n[Diets] \n");
     for (i=0; i<diet_index; i++)
     {
-    	fprintf(file, "%s - %d kcal \n", health_data->diet[diet_index].food_name, health_data->diet[diet_index].calories_intake);
+    	fprintf(file, "%s - %d kcal \n", health_data->diet[i].food_name, health_data->diet[i].calories_intake);
 	}
     fprintf(file, "Total calories intake: kcal \n", health_data->total_calories_intake);
 

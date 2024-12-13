@@ -22,7 +22,7 @@ static int choice;
 int main() {
 	// To initialize the health data object
     HealthData health_data = {0};
-    HealthData *health_data_ptr = &health_data;
+    HealthData* health_data_ptr = &health_data;    // pointer of health_data
     
     // Tocode: to read the list of the exercises and diets
     loadExercises(EXERCISEFILEPATH);

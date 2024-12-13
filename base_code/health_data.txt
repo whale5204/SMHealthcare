@@ -1,11 +1,12 @@
 [Exercises] 
- - 0 kcal 
+running - 220 kcal 
+running - 330 kcal 
 Total calories burned: kcal 
 
 [Diets] 
- - 0 kcal 
+salad - 70 kcal 
 Total calories intake: kcal 
 
 [Total] 
 Basical metabolic rate: 1300 kcal 
-The remaining calories: 705 kcal 
+The remaining calories: -480 kcal 
