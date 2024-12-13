@@ -1,15 +1,11 @@
 [Exercises] 
 riding - 250 kcal 
-running - 649 kcal 
-walking - 80 kcal 
 Total calories burned: kcal 
 
 [Diets] 
-salad - 70 kcal 
-bread - 680 kcal 
-chicken - 925 kcal 
+rice - 600 kcal 
 Total calories intake: kcal 
 
 [Total] 
 Basical metabolic rate: 1300 kcal 
-The remaining calories: 696 kcal 
+The remaining calories: 350 kcal 
