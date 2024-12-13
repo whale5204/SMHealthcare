@@ -93,7 +93,7 @@ void printHealthData(const HealthData* health_data) {
     printf("============================= History of Diet =========================\n");
 	
 	for (i=0; i<diet_index; i++) {
-		printf("Food: , Calories intake: %d kcal \n", health_data->diet[i].food_name, health_data->diet[i].calories_intake);
+		printf("Food: %s, Calories intake: %d kcal \n", health_data->diet[i].food_name, health_data->diet[i].calories_intake);
 	}    
 
     printf("=======================================================================\n");
