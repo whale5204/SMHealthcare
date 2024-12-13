@@ -67,8 +67,7 @@ void inputDiet(HealthData* health_data) {
     
     // ToCode: to provide the options for the diets to be selected
     printf("The list of diets:\n");
-    for (i=0; i<diet_list_size; i++)
-    {
+    for (i=0; i<diet_list_size; i++) {
     	printf("%d. %s \n", (i + 1), diet_list[i].food_name);
 	}
 	printf("%d. exit \n", (diet_list_size + 1));
@@ -95,7 +94,5 @@ void inputDiet(HealthData* health_data) {
     //
     
     health_data->diet_count++;
-
-
 }
 

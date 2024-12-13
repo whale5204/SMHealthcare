@@ -28,10 +28,11 @@ int main() {
     loadExercises(EXERCISEFILEPATH);
     loadDiets(DIETFILEPATH);
     
+    int calories_remain = health_data_ptr->total_calories_intake - health_data_ptr->total_calories_burned - 1300;    //remaining calories
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     do {
-    	if ((health_data_ptr->total_calories_intake - health_data_ptr->total_calories_burned - 1300) == 0){
+    	if (calories_remain == 0) {
             printf("You have consumed all your calories for today! \n");
             break;
 		} 
@@ -62,6 +63,7 @@ int main() {
                 break;
                 
             case 3:
+            	printHealthData(health_data_ptr);
             	
                 break;
                 
