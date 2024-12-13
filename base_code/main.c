@@ -34,6 +34,7 @@ int main() {
     do {
     	if (calories_remain == 0) {
             printf("You have consumed all your calories for today! \n");
+            exit(0);
             break;
 		} 
 		else{
@@ -71,6 +72,7 @@ int main() {
             	
     			printf("Exit the system.\n");
     			printf("=======================================================================\n");
+    			exit(0);
                 break;
                 
             default:

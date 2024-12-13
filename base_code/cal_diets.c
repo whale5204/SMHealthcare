@@ -79,6 +79,13 @@ void inputDiet(HealthData* health_data) {
     // exit option
     if (choice == diet_list_size + 1)
         return;
+    
+    // invalid option
+    if (choice > diet_list_size) {
+    	printf("[Error] Invalid option. \n");
+        printf("Please try again! \n");
+        return;
+	}
 
     // ToCode: to enter the selected diet in the health data
     int index = health_data->diet_count;    // index of selected diet

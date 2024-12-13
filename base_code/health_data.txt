@@ -1,13 +1,9 @@
 [Exercises] 
-riding - 250 kcal 
-yoga - 140 kcal 
 Total calories burned: kcal 
 
 [Diets] 
-salad - 70 kcal 
-pizza - 900 kcal 
 Total calories intake: kcal 
 
 [Total] 
 Basical metabolic rate: 1300 kcal 
-The remaining calories: 580 kcal 
+The remaining calories: 0 kcal 
