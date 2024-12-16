@@ -81,7 +81,7 @@ void inputDiet(HealthData* health_data) {
         return;
     
     // invalid option
-    if (choice > diet_list_size) {
+    if (choice < 1 || choice > (diet_list_size + 1)) {
     	printf("[Error] Invalid option. \n");
         printf("Please try again! \n");
         return;

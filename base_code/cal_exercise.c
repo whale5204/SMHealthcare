@@ -84,10 +84,10 @@ void inputExercise(HealthData* health_data) {
         return;
     
     // invalid option
-    if (choice > exercise_list_size) {
+    if (choice < 1 || choice > (exercise_list_size + 1)) {
     	printf("[Error] Invalid option. \n");
         printf("Please try again! \n");
-        return;
+        return;    // go to main menu
 	}
     
     // To enter the duration of the exercise
