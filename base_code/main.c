@@ -32,7 +32,7 @@ int main() {
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     do {
-    	if (calories_remain == 0) {
+    	if (calories_remain == 0) {    //exit the program if remaining calories are zero
             printf("You have consumed all your calories for today! \n");
             exit(0);
             break;
@@ -79,7 +79,7 @@ int main() {
                 printf("[Error] Invalid option. \n");
                 printf("Please try again! \n");
         }
-    } while (1);
+    } while (1);    //infinite loop until exit option
 
     return 0;
 }

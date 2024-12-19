@@ -32,17 +32,18 @@
         return;
     }
     
+    int calories_remain = health_data->total_calories_intake - health_data->total_calories_burned - 1300;    //remaining calories
+    
     // index of exercise and diet
     int exercise_index = health_data->exercise_count;
     int diet_index = health_data->diet_count;
-    printf("exercise_index: %d \ndiet_index: %d \n", exercise_index, diet_index);
 
     // ToCode: to save the chosen exercise and total calories burned 
     fprintf(file, "[Exercises] \n");
     for (i=0; i<exercise_index; i++) {
     	fprintf(file, "%s - %d kcal \n", health_data->exercises[i].exercise_name, health_data->exercises[i].calories_burned_per_minute);
 	}
-    fprintf(file, "Total calories burned: kcal \n", health_data->total_calories_burned);
+    fprintf(file, "Total calories burned: %d kcal \n", health_data->total_calories_burned);
     
     
     // ToCode: to save the chosen diet and total calories intake 
@@ -50,13 +51,13 @@
     for (i=0; i<diet_index; i++) {
     	fprintf(file, "%s - %d kcal \n", health_data->diet[i].food_name, health_data->diet[i].calories_intake);
 	}
-    fprintf(file, "Total calories intake: kcal \n", health_data->total_calories_intake);
+    fprintf(file, "Total calories intake: %d kcal \n", health_data->total_calories_intake);
 
 
     // ToCode: to save the total remaining calrories
     fprintf(file, "\n[Total] \n");
     fprintf(file, "Basical metabolic rate: 1300 kcal \n");
-    fprintf(file, "The remaining calories: %d kcal \n", health_data->total_calories_intake - health_data->total_calories_burned);
+    fprintf(file, "The remaining calories: %d kcal \n", calories_remain);
     
     
     fclose(file);
@@ -79,7 +80,7 @@ void printHealthData(const HealthData* health_data) {
 	// index of exercise and diet
     int exercise_index = health_data->exercise_count;
     int diet_index = health_data->diet_count;
-	
+    
 	// ToCode: to print out the saved history of exercises
 	printf("=========================== History of Exercise =======================\n");
 	
@@ -119,7 +120,7 @@ void printHealthData(const HealthData* health_data) {
     	if (health_data->total_calories_intake == 2000) {
     		printf("Your total calorie intake for today has reached your goal! \n");
 		}
-		else if (health_data->total_calories_intake < 0) {
+		else if (health_data->total_calories_intake < 2000) {
 			printf("Your total calorie intake for today has not reached your goal, remember to eat more! \n");
 		}
 		else

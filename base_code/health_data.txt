@@ -1,9 +1,13 @@
 [Exercises] 
-Total calories burned: kcal 
+swimming - 600 kcal 
+Total calories burned: 600 kcal 
 
 [Diets] 
-Total calories intake: kcal 
+chicken - 925 kcal 
+pizza - 900 kcal 
+chicken - 925 kcal 
+Total calories intake: 2750 kcal 
 
 [Total] 
 Basical metabolic rate: 1300 kcal 
-The remaining calories: 0 kcal 
+The remaining calories: 850 kcal 

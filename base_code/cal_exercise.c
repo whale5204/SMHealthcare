@@ -26,7 +26,6 @@ int exercise_list_size = 0;
     description : read the information in "excercises.txt"
 */
 
-//warning 뜨는건 나중에 해결하기 
 void loadExercises(const char* EXERCISEFILEPATH) {
     FILE *file = fopen(EXERCISEFILEPATH, "r");
     if (file == NULL) {
@@ -35,18 +34,16 @@ void loadExercises(const char* EXERCISEFILEPATH) {
     }
 
     // ToCode: to read a list of the exercises from the given file
-    while (fgets(exercise_list[exercise_list_size].exercise_name, MAX_EXERCISES, file) != NULL) {	
+    while (fgets(exercise_list[exercise_list_size].exercise_name, MAX_EXERCISES, file) != NULL) {	//read file and put all the information(exercise name and calories) in exercise_list.exercise_name
         if (exercise_list_size >= MAX_EXERCISES){
         	break;
 		}
+
 		//seperate exercises name and calories
-		char *context = NULL;    //context for strtok_s
-		char *name = strtok_s(exercise_list[exercise_list_size].exercise_name, " ", &context);
-		char *calories_b = strtok_s(NULL, " ", &context);
-		exercise_list[exercise_list_size].calories_burned_per_minute = atoi(calories_b);    //convert calories_burned info string to integer
-		//checking
-		printf("%s %d \n", exercise_list[exercise_list_size].exercise_name, exercise_list[exercise_list_size].calories_burned_per_minute);
-		//
+		char *name = strtok(exercise_list[exercise_list_size].exercise_name, " ");    //use strtok to seperate exercise name and calories by space
+		char *calories_burned = strtok(NULL, " ");
+		exercise_list[exercise_list_size].calories_burned_per_minute = atoi(calories_burned);    //convert calories_burned info string to integer
+
 		exercise_list_size++;
     }
     fclose(file);
@@ -103,11 +100,6 @@ void inputExercise(HealthData* health_data) {
     
     // enter total calories burned in the health data
     health_data->total_calories_burned += health_data->exercises[index].calories_burned_per_minute;
-    
-    //checking
-    printf("%s - %d kcal \n", health_data->exercises[index].exercise_name, health_data->exercises[index].calories_burned_per_minute);
-    printf("Total calories burned: %d kcal \n", health_data->total_calories_burned);
-    //
     
     health_data->exercise_count++;
 }

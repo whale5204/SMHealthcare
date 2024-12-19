@@ -26,7 +26,6 @@ static int diet_list_size = 0;
     description : read the information in "diets.txt"
 */
 
-//warning 뜨는 건 나중에 해결하기 
 void loadDiets(const char* DIETFILEPATH) {
     FILE *file = fopen(DIETFILEPATH, "r");
     if (file == NULL) {
@@ -35,19 +34,16 @@ void loadDiets(const char* DIETFILEPATH) {
     }
 
      // ToCode: to read a list of the diets from the given file
-    while (fgets(diet_list[diet_list_size].food_name, MAX_DIETS, file) != NULL) {
+    while (fgets(diet_list[diet_list_size].food_name, MAX_DIETS, file) != NULL) {    //read file and put all the information(food name and calories) in diet_list.food_name
     	
         if (diet_list_size >= MAX_DIETS){
         	break;
 		}
 		//seperate diets name and calories
-		char *context = NULL;    //context for strtok_s
-		char *name = strtok_s(diet_list[diet_list_size].food_name, " ", &context);
-		char *calories_i = strtok_s(NULL, " ", &context);
-		diet_list[diet_list_size].calories_intake = atoi(calories_i);    //convert calories_intake info string to integer
-		//checking
-		printf("%s %i\n", diet_list[diet_list_size].food_name, diet_list[diet_list_size].calories_intake);
-		//
+		char *name = strtok(diet_list[diet_list_size].food_name, " ");    //use strtok to seperate food name and calories by space
+		char *calories_intake = strtok(NULL, " ");
+		diet_list[diet_list_size].calories_intake = atoi(calories_intake);    //convert calories_intake info string to integer
+
 		diet_list_size++;
     }
     fclose(file);
@@ -84,7 +80,7 @@ void inputDiet(HealthData* health_data) {
     if (choice < 1 || choice > (diet_list_size + 1)) {
     	printf("[Error] Invalid option. \n");
         printf("Please try again! \n");
-        return;
+        return;    // go to main menu
 	}
 
     // ToCode: to enter the selected diet in the health data
@@ -94,11 +90,6 @@ void inputDiet(HealthData* health_data) {
 
     // ToCode: to enter the total calories intake in the health data
     health_data->total_calories_intake += health_data->diet[index].calories_intake;
-    
-    //checking
-    printf("%s - %d kcal \n", health_data->diet[index].food_name, health_data->diet[index].calories_intake);
-    printf("Total calories intake: %d kcal \n", health_data->total_calories_intake);
-    //
     
     health_data->diet_count++;
 }
